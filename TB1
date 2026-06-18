@@ -1,0 +1,8 @@
+create table public."Tabela Final" (
+  id bigint generated always as identity not null,
+  pais_id bigint not null,
+  ia_id bigint not null,
+  constraint data_centers_pkey primary key (id),
+  constraint data_centers_ia_id_fkey foreign KEY (ia_id) references ias (id) on delete CASCADE,
+  constraint data_centers_pais_id_fkey foreign KEY (pais_id) references paises (id) on delete CASCADE
+) TABLESPACE pg_default;
